@@ -116,7 +116,8 @@ jobs:
               -project AmgiApp/AmgiApp.xcodeproj \
               -scheme AmgiApp \
               -configuration Debug \
-              -destination 'platform=iOS Simulator,name=iPhone 17 Pro Max' \
+              -destination 'generic/platform=iOS Simulator' \
+              ARCHS=arm64 \
               -derivedDataPath "$DERIVED_DATA_PATH" \
               -skipPackagePluginValidation \
               -skipMacroValidation \
@@ -126,7 +127,8 @@ jobs:
               -project AmgiApp/AmgiApp.xcodeproj \
               -scheme AmgiApp \
               -configuration Debug \
-              -destination 'platform=iOS Simulator,name=iPhone 17 Pro Max' \
+              -destination 'generic/platform=iOS Simulator' \
+              ARCHS=arm64 \
               -derivedDataPath "$DERIVED_DATA_PATH" \
               -skipPackagePluginValidation \
               -skipMacroValidation \
