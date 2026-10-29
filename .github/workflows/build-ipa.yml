@@ -111,13 +111,14 @@ jobs:
         run: |
           set -o pipefail
           DERIVED_DATA_PATH="$RUNNER_TEMP/DerivedData"
+          printf '%s\n' 'ARCHS[sdk=iphonesimulator*] = arm64' > "$RUNNER_TEMP/simulator-arch.xcconfig"
           if xcodebuild -list -project AmgiApp/AmgiApp.xcodeproj | grep -q "Tests"; then
             xcodebuild build-for-testing \
               -project AmgiApp/AmgiApp.xcodeproj \
               -scheme AmgiApp \
               -configuration Debug \
               -destination 'generic/platform=iOS Simulator' \
-              ARCHS=arm64 \
+              -xcconfig "$RUNNER_TEMP/simulator-arch.xcconfig" \
               -derivedDataPath "$DERIVED_DATA_PATH" \
               -skipPackagePluginValidation \
               -skipMacroValidation \
@@ -128,7 +129,7 @@ jobs:
               -scheme AmgiApp \
               -configuration Debug \
               -destination 'generic/platform=iOS Simulator' \
-              ARCHS=arm64 \
+              -xcconfig "$RUNNER_TEMP/simulator-arch.xcconfig" \
               -derivedDataPath "$DERIVED_DATA_PATH" \
               -skipPackagePluginValidation \
               -skipMacroValidation \
