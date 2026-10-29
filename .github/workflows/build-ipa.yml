@@ -25,7 +25,7 @@ defaults:
 
 jobs:
   build:
-    runs-on: macos-26
+    runs-on: macos-26-intel
     timeout-minutes: 60
 
     # GITHUB_TOKEN scopes — minimal set required for tag-triggered release publish.
