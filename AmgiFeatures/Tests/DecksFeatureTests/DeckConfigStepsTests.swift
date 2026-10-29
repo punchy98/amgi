@@ -34,7 +34,7 @@ struct DeckConfigStepsTests {
 
     @Test func formattingUsesTheLargestWholeUnitLikeDesktop() {
         let model = model()
-        #expect(model.formatSteps([0.5, 1.5, 20 / 60, 1, 10, 60, 90, 1440, 1500, 2880]) == "30s 90s 20s 1m 10m 1h 90m 1d 25h 2d")
+        #expect(model.formatSteps([0.5, 1.5, Float(20) / 60, 1, 10, 60, 90, 1440, 1500, 2880]) == "30s 90s 20s 1m 10m 1h 90m 1d 25h 2d")
         #expect(model.formatSteps([0.123, 0]) == "0.123m 0m")
         #expect(model.formatSteps([2_097_153]) == "2097153m")
     }
